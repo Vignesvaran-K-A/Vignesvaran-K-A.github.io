@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>K A Vignesvaran | Systems, Data & Intelligence</title>
+  <meta name="description" content="Portfolio of K A Vignesvaran — Electrical & Computer Engineer specializing in Data Engineering, Embedded Systems/RTOS, and Applied Machine Learning." />
+
+  <!-- Preconnect Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,600;0,800;1,400&family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="loading">
+
+  <!-- Grain & Canvas Background -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+  <canvas id="webgl-canvas" aria-hidden="true"></canvas>
+
+  <!-- Custom Cursor -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Top System Bar -->
+  <header class="hud-header">
+    <div class="hud-brand">
+      <a href="#hero" class="brand-link">
+        <span class="brand-tag">[VKA_SYS]</span>
+        <span class="brand-name">K A VIGNESVARAN</span>
+      </a>
+      <div class="system-status">
+        <span class="pulse-dot"></span>
+        <span class="status-text">SYS_ONLINE // COIMBATORE, IN</span>
+      </div>
+    </div>
+
+    <nav class="hud-nav" id="hudNav">
+      <a href="#about" class="nav-link"><span class="nav-idx">01</span> ABOUT</a>
+      <a href="#projects" class="nav-link"><span class="nav-idx">02</span> PROJECTS</a>
+      <a href="#skills" class="nav-link"><span class="nav-idx">03</span> CAPABILITIES</a>
+      <a href="#experience" class="nav-link"><span class="nav-idx">04</span> EXP</a>
+      <a href="#contact" class="nav-link"><span class="nav-idx">05</span> TRANSMISSION</a>
+    </nav>
+
+    <div class="hud-controls">
+      <!-- Audio Visualizer Indicator -->
+      <button class="audio-toggle" id="audioToggle" title="Ambient Cyber Audio Atmosphere">
+        <div class="eq-bars">
+          <span></span><span></span><span></span><span></span>
+        </div>
+        <span class="audio-label">AUDIO: OFF</span>
+      </button>
+
+      <!-- Terminal Trigger -->
+      <button class="terminal-toggle-btn" id="openTerminalBtn" title="Launch Diagnostics CLI">
+        <span class="cli-icon">>_</span>
+        <span class="cli-text">CLI</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Smooth Wrapper -->
+  <main id="main-content">
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero-section">
+      <div class="hero-hud-top">
+        <span class="hud-label">COORDINATES // 11.0168° N, 76.9558° E</span>
+        <span class="hud-label">LOCAL_TIME // <span id="hero-clock">--:--:-- IST</span></span>
+        <span class="hud-label">DISCIPLINE // ECE • DATA • RTOS • ML</span>
+      </div>
+
+      <div class="hero-content">
+        <div class="hero-meta-badge">
+          <span class="badge-code">ENGINEERING PROTOCOL</span>
+          <span class="badge-divider">/</span>
+          <span class="badge-sub">HIGH-THROUGHPUT ARCHITECTURE</span>
+        </div>
+
+        <h1 class="hero-title">
+          <span class="title-row"><span class="reveal-text">BRIDGING</span></span>
+          <span class="title-row highlight"><span class="reveal-text">HARDWARE, DATA</span></span>
+          <span class="title-row"><span class="reveal-text">& INTELLIGENCE.</span></span>
+        </h1>
+
+        <p class="hero-description">
+          Electrical & Computer Engineer crafting low-latency RTOS kernels, scalable 
+          <strong>Databricks Medallion pipelines</strong>, and predictive machine learning models. 
+          From silicon firmware to cloud lakehouses.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#projects" class="btn-cyber primary">
+            <span class="btn-text">EXPLORE PROJECTS</span>
+            <span class="btn-arrow">→</span>
+          </a>
+          <a href="#contact" class="btn-cyber secondary">
+            <span class="btn-text">OPEN TRANSMISSION</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Hero Telemetry Matrix -->
+      <div class="hero-telemetry">
+        <div class="telemetry-cell">
+          <span class="tele-val counter" data-target="0.9324">0.0000</span>
+          <span class="tele-lbl">EV SOC MODEL R²</span>
+        </div>
+        <div class="telemetry-cell">
+          <span class="tele-val counter" data-target="25000">0</span>
+          <span class="tele-lbl">ELT BATCH INGESTION</span>
+        </div>
+        <div class="telemetry-cell">
+          <span class="tele-val">SHA-256</span>
+          <span class="tele-lbl">PARALLEL MERKLE ENGINE</span>
+        </div>
+        <div class="telemetry-cell">
+          <span class="tele-val">QNX RTOS</span>
+          <span class="tele-lbl">DETERMINISTIC SYSTEMS</span>
+        </div>
+      </div>
+
+      <div class="scroll-indicator">
+        <div class="scroll-track">
+          <div class="scroll-thumb"></div>
+        </div>
+        <span class="scroll-text">SCROLL TO INITIALIZE</span>
+      </div>
+    </section>
+
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="section about-section">
+      <div class="section-header">
+        <span class="section-num">// 01</span>
+        <h2 class="section-title">ENGINEERING PHILOSOPHY</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-statement">
+          <p class="lead-text">
+            Modern computation lives at the boundary where physical electrons turn into streaming data. 
+            I operate across this entire continuum.
+          </p>
+          <p class="body-text">
+            Pursuing my B.Tech in Electrical & Computer Engineering at Amrita Vishwa Vidyapeetham, 
+            I bridge low-level POSIX/RTOS microkernels and EV battery management systems with distributed 
+            Lakehouse engineering on Databricks, PySpark, and BigQuery.
+          </p>
+          <div class="creed-box">
+            <div class="creed-header">CORE MANIFESTO</div>
+            <p>
+              "Reliability is not a luxury. Whether it is an anti-jamming LoRa packet, an RTOS cryptographic hash, 
+              or a multi-source FMCG medallion pipeline — every bit must arrive verified, structured, and fast."
+            </p>
+          </div>
+        </div>
+
+        <div class="about-specs">
+          <div class="spec-card">
+            <span class="spec-id">[DISCIPLINE_01]</span>
+            <h4>Data Engineering & Lakehouse</h4>
+            <p>Bronze-Silver-Gold Medallion pipelines, PySpark batch & streaming transformations, dbt semantic layers, and automated cloud CI/CD.</p>
+          </div>
+          <div class="spec-card">
+            <span class="spec-id">[DISCIPLINE_02]</span>
+            <h4>Embedded Systems & RTOS</h4>
+            <p>Multithreaded C programming on QNX Neutrino RTOS, task scheduling, mutexes, semaphores, inter-process communication, and hardware telemetry.</p>
+          </div>
+          <div class="spec-card">
+            <span class="spec-id">[DISCIPLINE_03]</span>
+            <h4>Applied Machine Learning</h4>
+            <p>Predictive modeling with XGBoost, geospatial spatial optimization, deep learning instance segmentation, and sensor telemetry analysis.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="section projects-section">
+      <div class="section-header">
+        <div class="header-left">
+          <span class="section-num">// 02</span>
+          <h2 class="section-title">TECHNICAL CASE STUDIES</h2>
+        </div>
+        <div class="section-line"></div>
+      </div>
+
+      <!-- Project Filters -->
+      <div class="project-filters">
+        <button class="filter-btn active" data-filter="all">ALL [07]</button>
+        <button class="filter-btn" data-filter="data">DATA LAKEHOUSE</button>
+        <button class="filter-btn" data-filter="ml">APPLIED ML & AI</button>
+        <button class="filter-btn" data-filter="systems">RTOS & SYSTEMS</button>
+        <button class="filter-btn" data-filter="iot">IOT & ROBOTICS</button>
+      </div>
+
+      <!-- Projects Container -->
+      <div class="projects-list">
+
+        <!-- Project 1: FMCG Medallion Pipeline -->
+        <article class="project-card" data-category="data">
+          <div class="project-meta">
+            <span class="project-index">SYS_01 // DATA LAKEHOUSE</span>
+            <span class="project-status">PRODUCTION READY</span>
+          </div>
+          <div class="project-main">
+            <h3 class="project-title">Multi-Source FMCG Medallion Pipeline</h3>
+            <p class="project-platform">Databricks Lakehouse Platform • PySpark • AWS S3 • Delta Lake</p>
+            <p class="project-description">
+              Engineered an enterprise-grade multi-source Fast-Moving Consumer Goods (FMCG) pipeline. 
+              Implemented the Bronze–Silver–Gold Medallion architecture for multi-source ingestion, schema enforcement, 
+              deduplication, and analytical curation to produce analytics-ready datasets.
+            </p>
+            <div class="project-tech-tags">
+              <span>Databricks</span>
+              <span>PySpark</span>
+              <span>Python</span>
+              <span>SQL</span>
+              <span>AWS S3</span>
+              <span>Delta Lake</span>
+              <span>Medallion Architecture</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Vignesvaran-K-A/databricks-fmcg-medallion-pipeline" target="_blank" rel="noopener noreferrer" class="link-btn">
+                <span>VIEW REPOSITORY</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="project-hud-stat">
+            <div class="stat-box">
+              <span class="stat-number">3-TIER</span>
+              <span class="stat-label">BRONZE / SILVER / GOLD</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-number">ACID</span>
+              <span class="stat-label">DELTA LAKE GUARANTEE</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2: EV Charging Recommendation System -->
+        <article class="project-card" data-category="ml">
+          <div class="project-meta">
+            <span class="project-index">SYS_02 // MACHINE LEARNING & GEOSPATIAL</span>
+            <span class="project-status">ACCURACY CERTIFIED</span>
+          </div>
+          <div class="project-main">
+            <h3 class="project-title">SoC-Aware Intelligent EV Charging Recommendation System</h3>
+            <p class="project-platform">Machine Learning • XGBoost • Geospatial Filtering • EV State of Charge</p>
+            <p class="project-description">
+              Developed a driver-centric battery State of Charge (SoC) prediction model using XGBoost, trained on 1,000 battery telemetry 
+              samples across 18 operational features. Combined with a Haversine geospatial filtering engine to dynamically rank reachable 
+              charging hubs across 489 stations in real-time.
+            </p>
+            <div class="project-tech-tags">
+              <span>Machine Learning</span>
+              <span>XGBoost</span>
+              <span>Python</span>
+              <span>Geospatial Analysis</span>
+              <span>Haversine Algorithm</span>
+              <span>EV Telemetry</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Vignesvaran-K-A/ev-charging-recommendation-system" target="_blank" rel="noopener noreferrer" class="link-btn">
+                <span>VIEW REPOSITORY</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="project-hud-stat">
+            <div class="stat-box">
+              <span class="stat-number">0.9324</span>
+              <span class="stat-label">R² PREDICTION ACCURACY</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-number">1.91</span>
+              <span class="stat-label">MEAN ABSOLUTE ERROR (MAE)</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3: NYC 311 Data Platform -->
+        <article class="project-card" data-category="data">
+          <div class="project-meta">
+            <span class="project-index">SYS_03 // CLOUD ELT & CI/CD</span>
+            <span class="project-status">CONTAINERIZED STREAM</span>
+          </div>
+          <div class="project-main">
+            <h3 class="project-title">NYC 311 Data Engineering & Municipal Analytics Platform</h3>
+            <p class="project-platform">Python • dbt • Google BigQuery • Docker • GitHub Actions • Streamlit</p>
+            <p class="project-description">
+              Engineered a containerized ELT pipeline ingesting live municipal data via the Socrata REST API in paginated 25,000-row 
+              batches into BigQuery. Implemented dbt data modeling with automated schema testing, packaged inside Docker with GitHub Actions 
+              CI/CD and an interactive Streamlit analytics dashboard.
+            </p>
+            <div class="project-tech-tags">
+              <span>dbt Core</span>
+              <span>Google BigQuery</span>
+              <span>Docker</span>
+              <span>GitHub Actions CI/CD</span>
+              <span>REST APIs</span>
+              <span>Streamlit</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Vignesvaran-K-A/dbt_x_gcp" target="_blank" rel="noopener noreferrer" class="link-btn">
+                <span>VIEW REPOSITORY</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="project-hud-stat">
+            <div class="stat-box">
+              <span class="stat-number">25,000</span>
+              <span class="stat-label">ROWS / INGESTION BATCH</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-number">100%</span>
+              <span class="stat-label">AUTOMATED CI/CD TESTING</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 4: IoT Canopy Imaging Final Year Project -->
+        <article class="project-card" data-category="iot">
+          <div class="project-meta">
+            <span class="project-index">SYS_04 // FINAL YEAR RESEARCH & IOT</span>
+            <span class="project-status">ACTIVE DEPLOYMENT</span>
+          </div>
+          <div class="project-main">
+            <h3 class="project-title">IoT-Based Crop Shoot Density Index (CSDI) in Lady’s Finger Plants</h3>
+            <p class="project-platform">Ongoing Final Year Project • IoT Canopy Imaging • CVAT • Deep Learning</p>
+            <p class="project-description">
+              Developed an IoT-enabled agricultural canopy imaging pipeline for Lady's Finger plants. 
+              Integrated CVAT-based polygon annotation to construct custom crop-component datasets for instance segmentation, 
+              temporal growth tracking, and automated Crop Shoot Density Index estimation for precision farming.
+            </p>
+            <div class="project-tech-tags">
+              <span>IoT Imaging</span>
+              <span>CVAT Annotation</span>
+              <span>Instance Segmentation</span>
+              <span>Deep Learning</span>
+              <span>Python</span>
+              <span>Predictive Analytics</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Vignesvaran-K-A/iot_csdi_canopy_imaging" target="_blank" rel="noopener noreferrer" class="link-btn">
+                <span>VIEW REPOSITORY</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="project-hud-stat">
+            <div class="stat-box">
+              <span class="stat-number">CSDI</span>
+              <span class="stat-label">INDEX ESTIMATION</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-number">CANOPY</span>
+              <span class="stat-label">HARDWARE INTERFACING</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 5: QNX Parallel Hashing Engine -->
+        <article class="project-card" data-category="systems">
+          <div class="project-meta">
+            <span class="project-index">SYS_05 // HARD REAL-TIME & CRYPTOGRAPHY</span>
+            <span class="project-status">DETERMINISTIC KERNEL</span>
+          </div>
+          <div class="project-main">
+            <h3 class="project-title">Parallel Cryptographic Hash & Merkle Verification Engine</h3>
+            <p class="project-platform">C • QNX Neutrino RTOS • POSIX Threads • IPC • IOV Message Passing</p>
+            <p class="project-description">
+              Architected a parallel SHA-256 Merkle Tree firmware verification engine implemented in C on QNX Neutrino RTOS. 
+              Features a multithreaded worker pool, client-server IPC architecture, IOV (Input/Output Vector) zero-copy message passing, 
+              and deterministic block-level firmware integrity verification.
+            </p>
+            <div class="project-tech-tags">
+              <span>C (POSIX)</span>
+              <span>QNX Neutrino RTOS</span>
+              <span>Multithreading</span>
+              <span>IPC & IOV</span>
+              <span>SHA-256</span>
+              <span>Merkle Tree</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Vignesvaran-K-A/parallel-cryptographic-hash-merkle-verification" target="_blank" rel="noopener noreferrer" class="link-btn">
+                <span>VIEW REPOSITORY</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="project-hud-stat">
+            <div class="stat-box">
+              <span class="stat-number">ZERO</span>
+              <span class="stat-label">ZERO-COPY IOV IPC</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-number">POSIX</span>
+              <span class="stat-label">CONCURRENCY & SYNCHRONIZATION</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 6: LoRa Anti-Jamming System -->
+        <article class="project-card" data-category="systems">
+          <div class="project-meta">
+            <span class="project-index">SYS_06 // RF TELEMETRY & SECURITY</span>
+            <span class="project-status">HARDENED LINK</span>
+          </div>
+          <div class="project-main">
+            <h3 class="project-title">Secure LoRa Communication System with Anti-Jamming</h3>
+            <p class="project-platform">LoRa Telemetry • AES Cryptography • RSSI/SNR Dynamic Channel Hopping</p>
+            <p class="project-description">
+              Engineered a secure long-range RF telemetry link featuring AES payload encryption, real-time RF signal quality 
+              evaluation (RSSI and SNR interference profiling), automatic anti-jamming frequency switching, and live cloud dashboard monitoring.
+            </p>
+            <div class="project-tech-tags">
+              <span>LoRa RF</span>
+              <span>AES Encryption</span>
+              <span>RSSI/SNR Diagnostics</span>
+              <span>Frequency Hopping</span>
+              <span>C / C++</span>
+              <span>Telemetry Hub</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Vignesvaran-K-A/lora-communication-with-anti-jamming" target="_blank" rel="noopener noreferrer" class="link-btn">
+                <span>VIEW REPOSITORY</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="project-hud-stat">
+            <div class="stat-box">
+              <span class="stat-number">AES</span>
+              <span class="stat-label">ENCRYPTED PAYLOAD</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-number">AUTO</span>
+              <span class="stat-label">ANTI-JAMMING CHANNEL HOPPING</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 7: Nexus 3 Robotic Platform -->
+        <article class="project-card" data-category="iot">
+          <div class="project-meta">
+            <span class="project-index">SYS_07 // ROBOTICS & EMBEDDED KERNEL</span>
+            <span class="project-status">EXPERIMENTAL PROTOTYPE</span>
+          </div>
+          <div class="project-main">
+            <h3 class="project-title">Nexus 3 Autonomous Robotic Vehicle Platform</h3>
+            <p class="project-platform">Embedded Systems • Sensor Interfacing • Closed-Loop Motor Control • Telemetry</p>
+            <p class="project-description">
+              Custom robotic vehicle platform equipped with ultrasonic and infrared array sensor fusion, PID motor velocity regulation, 
+              real-time obstacle avoidance routines, and embedded serial control telemetry interface.
+            </p>
+            <div class="project-tech-tags">
+              <span>Embedded C</span>
+              <span>Sensor Fusion</span>
+              <span>PID Control</span>
+              <span>Motor Drivers</span>
+              <span>Hardware Interfacing</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Vignesvaran-K-A" target="_blank" rel="noopener noreferrer" class="link-btn">
+                <span>GITHUB PROFILE</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="project-hud-stat">
+            <div class="stat-box">
+              <span class="stat-number">PID</span>
+              <span class="stat-label">VELOCITY CONTROL</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-number">REALTIME</span>
+              <span class="stat-label">OBSTACLE AVOIDANCE</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+
+    <!-- TECHNICAL SKILLS MATRIX -->
+    <section id="skills" class="section skills-section">
+      <div class="section-header">
+        <span class="section-num">// 03</span>
+        <h2 class="section-title">TECHNICAL CAPABILITIES MATRIX</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="matrix-grid">
+
+        <!-- Column 1: Programming -->
+        <div class="matrix-card">
+          <div class="matrix-card-header">
+            <span class="matrix-icon">⌨</span>
+            <h3>PROGRAMMING & SCRIPTING</h3>
+          </div>
+          <ul class="skill-pill-list">
+            <li class="skill-pill primary">Python</li>
+            <li class="skill-pill primary">C (Systems & Embedded)</li>
+            <li class="skill-pill primary">SQL</li>
+            <li class="skill-pill">C++</li>
+            <li class="skill-pill">Bash / Shell</li>
+          </ul>
+        </div>
+
+        <!-- Column 2: Data Engineering -->
+        <div class="matrix-card highlight-card">
+          <div class="matrix-card-header">
+            <span class="matrix-icon">⚡</span>
+            <h3>DATA ENGINEERING & LAKEHOUSE</h3>
+          </div>
+          <ul class="skill-pill-list">
+            <li class="skill-pill highlight">Databricks</li>
+            <li class="skill-pill highlight">PySpark</li>
+            <li class="skill-pill highlight">Delta Lake</li>
+            <li class="skill-pill highlight">Medallion Architecture</li>
+            <li class="skill-pill">Google BigQuery</li>
+            <li class="skill-pill">dbt Core</li>
+            <li class="skill-pill">ETL / ELT Pipelines</li>
+            <li class="skill-pill">AWS S3</li>
+          </ul>
+        </div>
+
+        <!-- Column 3: CS Core & RTOS -->
+        <div class="matrix-card">
+          <div class="matrix-card-header">
+            <span class="matrix-icon">⚙</span>
+            <h3>SYSTEMS & CS CORE</h3>
+          </div>
+          <ul class="skill-pill-list">
+            <li class="skill-pill primary">QNX Neutrino RTOS</li>
+            <li class="skill-pill primary">Task Scheduling</li>
+            <li class="skill-pill">Mutexes & Semaphores</li>
+            <li class="skill-pill">Processes & POSIX Threads</li>
+            <li class="skill-pill">IPC & IOV Messaging</li>
+            <li class="skill-pill">OOP Design</li>
+            <li class="skill-pill">DBMS Architecture</li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Machine Learning & Vision -->
+        <div class="matrix-card">
+          <div class="matrix-card-header">
+            <span class="matrix-icon">◈</span>
+            <h3>MACHINE LEARNING & AI</h3>
+          </div>
+          <ul class="skill-pill-list">
+            <li class="skill-pill">XGBoost</li>
+            <li class="skill-pill">Scikit-learn</li>
+            <li class="skill-pill">Deep Learning</li>
+            <li class="skill-pill">CVAT Annotation</li>
+            <li class="skill-pill">Instance Segmentation</li>
+            <li class="skill-pill">NumPy & Pandas</li>
+            <li class="skill-pill">Matplotlib</li>
+            <li class="skill-pill">Model Training & Evaluation</li>
+          </ul>
+        </div>
+
+        <!-- Column 5: Embedded & Hardware -->
+        <div class="matrix-card">
+          <div class="matrix-card-header">
+            <span class="matrix-icon">⚡</span>
+            <h3>EMBEDDED & HARDWARE</h3>
+          </div>
+          <ul class="skill-pill-list">
+            <li class="skill-pill">MATLAB Simulink</li>
+            <li class="skill-pill">Battery Management Systems (BMS)</li>
+            <li class="skill-pill">SoC Coulomb Counting</li>
+            <li class="skill-pill">DC-DC Converters</li>
+            <li class="skill-pill">STM32 Microcontrollers</li>
+            <li class="skill-pill">LoRa Wireless Telemetry</li>
+            <li class="skill-pill">Sensor Interfacing & I2C/SPI</li>
+          </ul>
+        </div>
+
+        <!-- Column 6: DevOps & Cloud -->
+        <div class="matrix-card">
+          <div class="matrix-card-header">
+            <span class="matrix-icon">☁</span>
+            <h3>DEVOPS, CLOUD & TOOLS</h3>
+          </div>
+          <ul class="skill-pill-list">
+            <li class="skill-pill">Docker</li>
+            <li class="skill-pill">GitHub Actions (CI/CD)</li>
+            <li class="skill-pill">Git & GitHub</li>
+            <li class="skill-pill">AWS (Cloud Foundations)</li>
+            <li class="skill-pill">Google Cloud Platform (GCP)</li>
+            <li class="skill-pill">Streamlit</li>
+            <li class="skill-pill">REST APIs</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- EXPERIENCE & EDUCATION -->
+    <section id="experience" class="section exp-section">
+      <div class="section-header">
+        <span class="section-num">// 04</span>
+        <h2 class="section-title">CAREER TRAJECTORY & EXPERIENCE</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="timeline">
+
+        <!-- Experience Item 1 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">JUNE 2026</div>
+          <div class="timeline-content">
+            <div class="exp-badge">INDUSTRIAL INTERNSHIP</div>
+            <h3 class="exp-role">EV Technology & Power Electronics Intern</h3>
+            <h4 class="exp-org">Larsen & Toubro Limited — Chennai, India</h4>
+            <p class="exp-desc">
+              Developed and simulated EV subsystems using MATLAB Simulink, including Battery Management Systems (BMS), 
+              State of Charge (SoC) estimation algorithms using Coulomb counting, and DC-DC power converters.
+            </p>
+            <ul class="exp-bullets">
+              <li>Simulated active and passive battery cell balancing mechanisms for pack longevity.</li>
+              <li>Gained deep technical exposure to industrial high-voltage power systems, smart grids, and EV prototype integration.</li>
+              <li>Completed specialized on-site industrial visits focusing on Railway Electrification systems.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Experience Item 2 (Education) -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">2023 — 2027</div>
+          <div class="timeline-content">
+            <div class="exp-badge">HIGHER EDUCATION</div>
+            <h3 class="exp-role">B.Tech in Electrical and Computer Engineering</h3>
+            <h4 class="exp-org">Amrita Vishwa Vidyapeetham — Coimbatore, Tamil Nadu</h4>
+            <p class="exp-desc">
+              Current CGPA: <strong>7.61</strong>. Rigorous curriculum focusing on Computer Systems, RTOS architectures, 
+              Embedded Firmware, Data Structures, High-Performance Database Systems, and Digital Signal Processing.
+            </p>
+          </div>
+        </div>
+
+        <!-- Experience Item 3 (Schooling) -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">2021 — 2023</div>
+          <div class="timeline-content">
+            <div class="exp-badge">SECONDARY EDUCATION</div>
+            <h3 class="exp-role">Higher Secondary Certificate (HSC)</h3>
+            <h4 class="exp-org">Sri Chaitanya Senior Secondary School — Coimbatore, Tamil Nadu</h4>
+            <p class="exp-desc">
+              HSC Score: <strong>73%</strong>. Foundational training in Physics, Chemistry, and Advanced Mathematics.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- TRANSMISSION / CONTACT SECTION -->
+    <section id="contact" class="section contact-section">
+      <div class="contact-terminal-box">
+        <div class="terminal-bar">
+          <div class="terminal-dots">
+            <span class="red"></span><span class="yellow"></span><span class="green"></span>
+          </div>
+          <span class="terminal-title">TRANSMISSION_PROTOCOL // PORT: 443</span>
+        </div>
+
+        <div class="contact-body">
+          <span class="contact-prompt">// READY FOR CONNECTION</span>
+          <h2 class="contact-giant">LET'S BUILD RESILIENT SYSTEMS.</h2>
+          <p class="contact-lead">
+            Whether you have questions regarding Databricks lakehouse pipelines, RTOS microkernel systems, 
+            or engineering roles — my transmission lines are open.
+          </p>
+
+          <div class="contact-links-grid">
+            <a href="mailto:vignesvaranananthi@gmail.com" class="contact-pill">
+              <span class="pill-label">MAIL DIRECT</span>
+              <span class="pill-val">vignesvaranananthi@gmail.com</span>
+            </a>
+            <a href="https://github.com/Vignesvaran-K-A" target="_blank" rel="noopener noreferrer" class="contact-pill">
+              <span class="pill-label">GITHUB</span>
+              <span class="pill-val">github.com/Vignesvaran-K-A</span>
+            </a>
+            <a href="https://linkedin.com/in/vignesvaran1412" target="_blank" rel="noopener noreferrer" class="contact-pill">
+              <span class="pill-label">LINKEDIN</span>
+              <span class="pill-val">linkedin.com/in/vignesvaran1412</span>
+            </a>
+            <div class="contact-pill static">
+              <span class="pill-label">STATION</span>
+              <span class="pill-val">Coimbatore, Tamil Nadu, India</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="hud-footer">
+    <div class="footer-left">
+      <span>DESIGNED IN THE SPIRIT OF MIND OF AKIRA</span>
+      <span class="footer-sep">/</span>
+      <span>SYSTEM ARCHITECT: K A VIGNESVARAN</span>
+    </div>
+    <div class="footer-right">
+      <span class="blink-cursor">■</span>
+      <span>ALL RIGHTS RESERVED // 2026</span>
+    </div>
+  </footer>
+
+
+  <!-- INTERACTIVE TERMINAL DRAWER -->
+  <div class="terminal-overlay" id="terminalOverlay">
+    <div class="terminal-modal">
+      <div class="term-modal-header">
+        <div class="term-controls">
+          <span class="term-btn close" id="closeTerminalBtn"></span>
+          <span class="term-btn minimize"></span>
+          <span class="term-btn expand"></span>
+        </div>
+        <span class="term-title">vka_system_diagnostic_cli v2.4.0</span>
+      </div>
+      <div class="term-modal-body" id="termOutput">
+        <div class="term-line">VKA SYSTEM DIAGNOSTICS [Version 2.4.0]</div>
+        <div class="term-line">Type <span class="term-cmd">'help'</span> to inspect available subsystem commands.</div>
+        <div class="term-line">&nbsp;</div>
+      </div>
+      <div class="term-input-row">
+        <span class="term-prompt">user@vka-sys:~$</span>
+        <input type="text" id="termInput" class="term-input" autocomplete="off" spellcheck="false" placeholder="type command..." />
+      </div>
+    </div>
+  </div>
+
+
+  <!-- EXTERNAL SCRIPTS: GSAP, ScrollTrigger, Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Main JavaScript File -->
+  <script src="script.js" defer></script>
+</body>
+</html>
+
